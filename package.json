@@ -1,0 +1,28 @@
+{
+    "name": "pracwp",
+    "displayName": "pracwp",
+    "description": "shhhhhh",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.68.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "php",
+                "path": "./snippets/snippets.code-snippets"
+            },
+            {
+                "language": "javascript",
+                "path": "./snippets/javascript.code-snippets"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/html.code-snippets"
+            }
+        ]
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "Select Query":{
+        "prefix":"#phpselect",
+        "body": [
+            "<?php",
+               " $servername = 'localhost';",
+               " $username = 'username';",
+               " $password = 'password';",
+               " $dbname = 'myDB';",
+
+               " // Create connection",
+               " $conn = mysqli_connect($servername, $username, $password, $dbname);",
+               " // Check connection",
+               " if (!$conn) {",
+               " die('Connection failed: ' . mysqli_connect_error());",
+               " }",
+
+               " $sql = 'SELECT id, firstname, lastname FROM MyGuests';",
+               " $result = mysqli_query($conn, $sql);",
+
+               " if (mysqli_num_rows($result) > 0) {",
+               " // output data of each row",
+               " while($row = mysqli_fetch_assoc($result)) {",
+               "     echo 'id: ' . $row['id']. ' - Name: ' . $row['firstname']. ' ' . $row['lastname']. '<br>';",
+               " }",
+              " } else {",
+               " echo '0 results';",
+               " }",
+
+               " mysqli_close($conn);",
+            "?>"
+        ],
+        "description": "Select Query in php"
+    },
+    "Insert Query":{
+        "prefix":"#phpinsert",
+        "body": [
+            "<?php",
+               " $servername = 'localhost';",
+               " $username = 'username';",
+               " $password = 'password';",
+               " $dbname = 'myDB';",
+
+               " // Create connection",
+               " $conn = mysqli_connect($servername, $username, $password, $dbname);",
+               " // Check connection",
+               " if (!$conn) {",
+               " die('Connection failed: ' . mysqli_connect_error());",
+               " }",
+
+              " $name = $_POST['name'];",
+              " $age = $_POST['age'];",
+              " $gender = $_POST['gender'];",
+              " $email = $_POST['email'];",
+              " $phone = $_POST['phone'];",
+              " $desc = $_POST['desc'];",
+
+               " $sql = 'INSERT INTO MyGuests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@email.com')';",
+               "if($con->query($sql) == true){",
+               "  echo 'Successfully inserted';",
+                "}",
+                "else{",
+                    "echo 'ERROR: $sql <br> $con->error';",
+                "}",
+            
+                "$con->close();",
+                "?>"
+        ],
+        "description": "Insert Query in php"
+    },
+
+    "Form Validation":{
+        "prefix":"#phpformvalidation",
+        "body": [
+            "<?php",                
+            "// define variables and set to empty values",
+            "    $name = $email = $gender = $comment = $website = '';",
+
+            "    if ($_SERVER['REQUEST_METHOD'] == 'POST') {",
+            "    $name = test_input($_POST['name']);",
+            "    $email = test_input($_POST['email']);",
+            "    $website = test_input($_POST['website']);",
+            "    $comment = test_input($_POST['comment']);",
+            "    $gender = test_input($_POST['gender']);",
+            "    }",
+            "    function test_input($data) {",
+            "    $data = trim($data);",
+            "    $data = stripslashes($data);",
+            "    $data = htmlspecialchars($data);",
+            "    return $data;",
+            "    }", 
+            "?>",
+        ],
+    }
+    }
